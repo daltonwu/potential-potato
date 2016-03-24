@@ -8,3 +8,6 @@ Period 7 DW Softdev Data Project March 2016
 
 # Data
 * Crime rates
+
+# Sources
+* http://www.dlt.ri.gov/lmi/laus/us/annavg.htm
