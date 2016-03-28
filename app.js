@@ -1,8 +1,17 @@
 //<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 //<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
+var slider = document.getElementById("slider");
+
+var showYear = function(){
+    document.getElementById("year").innerHTML="Year: " + slider.value;
+}
+showYear();
+
+slider.addEventListener('click',showYear);
+
 d3.csv("UnemploymentRates.csv", function(data){
-    console.log(data[2]);
+    console.log(data[2]["2009"]);
 });
 
 d3.csv("UnemploymentRates.csv", function(data){
@@ -18,4 +27,3 @@ d3.csv("UnemploymentRates.csv", function(data){
     });
     console.log(data[2]);
 });
-
