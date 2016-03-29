@@ -1,5 +1,12 @@
-//<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-//<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+$(document).ready(function() {
+    $('#map').usmap({
+  // The click action
+  click: function(event, data) {
+    $('#clicked-state')
+      .text('You clicked: '+data.name)
+      .parent().effect('highlight', {color: '#C7F464'}, 2000);
+  }});
+});
 
 var slider = document.getElementById("slider");
 
@@ -27,3 +34,4 @@ d3.csv("UnemploymentRates.csv", function(data){
     });
     console.log(data[2]);
 });
+
