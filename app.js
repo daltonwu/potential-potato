@@ -1,21 +1,21 @@
 $(document).ready(function() {
     $('#map').usmap({
-  // The click action
-  click: function(event, data) {
-    $('#clicked-state')
-      .text('You clicked: '+data.name)
-      .parent().effect('highlight', {color: '#C7F464'}, 2000);
-  }});
+    // The click action
+    click: function(event, data) {
+        $('#clicked-state')
+            .text('You clicked: '+data.name)
+            .parent().effect('highlight', {color: '#C7F464'}, 2000);
+    }});
 });
 
 var slider = document.getElementById("slider");
+var year = document.getElementById("year"); // not the value, but the element
 
-var showYear = function(){
-    document.getElementById("year").innerHTML="Year: " + slider.value;
-}
+var showYear = function() {
+    year.innerHTML = "Year: " + slider.value;
+};
+
 showYear();
-
-slider.addEventListener('click',showYear);
 
 d3.csv("UnemploymentRates.csv", function(data){
     console.log(data[2]["2009"]);

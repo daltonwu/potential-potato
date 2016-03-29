@@ -2,22 +2,22 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <title>Unemployment Over Time</title></head>
+    <title>Unemployment Over Time</title>
+  </head>
   <body>
     <center>
       <div id="map" style="width: 350px; height: 250px;"></div>
       <div id="clicked-state"></div>
       
-      <u><h1>Unemployment Rates Over Time</h1></u>
-      <b id="year">Year: </b><br>
-      <input type="range" min="2009" max="2015" value="2009" step="1" style="width: 500px; height: 40px" id="slider"/>
+      <h1>Unemployment Rates Over Time</h1>
+      <div id="year">Year: </div><br>
+      <input type="range" min="2009" max="2015" value="2015" step="1" style="width: 500px; height: 40px" id="slider" onchange="showYear()" oninput="showYear()">
     </center>
     
     <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-        <script src="./script/us-map-1.0.1/lib/raphael.js"></script>
+    <script src="./script/us-map-1.0.1/lib/raphael.js"></script>
     <script src="./script/us-map-1.0.1/jquery.usmap.js"></script>
     <script src="app.js"></script>
-  
   </body>
 </html>
