@@ -1,3 +1,16 @@
 h1 {
     text-decoration: underline;
 }
+
+body {
+    background-image: url("http://eskipaper.com/images/polygon-background-1.jpg");
+}
+
+.container{
+    margin-right:400px;
+    margin-left: 400px;
+    padding: 5px;
+    border: 1px solid white;
+    border-radius: 6px;
+    background-image: url("http://www.myfreephotoshop.com/wp-content/uploads/2014/01/955.jpg"); 
+}

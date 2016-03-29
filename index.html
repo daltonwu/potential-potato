@@ -6,12 +6,13 @@
   </head>
   <body>
     <center>
-      <div id="map" style="width: 350px; height: 250px;"></div>
-      <div id="clicked-state"></div>
-      
       <h1>Unemployment Rates Over Time</h1>
+      <div class = "container">
       <div id="year">Year: </div><br>
       <input type="range" min="2009" max="2015" value="2015" step="1" style="width: 500px; height: 40px" id="slider" onchange="showYear()" oninput="showYear()">
+      </div>
+     <div id="map" style="width: 700px; height: 500px;"></div>
+     <div id="clicked-state"></div>
     </center>
     
     <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
@@ -19,5 +20,6 @@
     <script src="./script/us-map-1.0.1/lib/raphael.js"></script>
     <script src="./script/us-map-1.0.1/jquery.usmap.js"></script>
     <script src="app.js"></script>
+
   </body>
 </html>
