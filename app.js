@@ -3,8 +3,8 @@ $(document).ready(function() {
     // The click action
     click: function(event, data) {
         $('#clicked-state')
-            .text('You clicked: '+data.name)
-            .parent().effect('highlight', {color: '#C7F464'}, 2000);
+	    .text(function(){console.log("A");return 'This is '+data.name + " and the Crime Rate is " + getData(data.name,(document.getElementById("slider").value).toString());})
+	    .parent().effect('highlight', {color: '#C7F464'}, 2000);
     }});
 });
 
@@ -17,6 +17,7 @@ var showYear = function() {
 
 showYear();
 
+/*
 var newMap = [["N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","Maine"],["Alaska","N/A","N/A","N/A","N/A","N/A","Wisconsin","N/A","N/A","N/A","Vermont","New Hampshire"],["N/A","Washington","Idaho","Montana","North Dakota","Minnesota","Illinois","Michigan","N/A","New York","Massachussetts","N/A"],["N/A","Oregon","Nevada","Wyoming","South Dakota","Iowa","Indiana","Ohio","Pennsylvania","New Jersey","Connecticut","Rhode Island"],["N/A","California","Utah","Colorado","Nebraska","Montana","Kentucky","West Virginia","Virginia","DC","Maryland","Delaware"],["N/A","N/A","Arizona","New Mexico","Kansas","Arkansas","Tennessee","North Carolina","South Carolina","N/A","N/A","N/A"],["N/A","N/A","Oklahoma","Louisiana","Mississippi","Alabama","Georgia","N/A","N/A","N/A","N/A"],["Hawaii","N/A","N/A","Texas","N/A","N/A","N/A","N/A","Florida","N/A","N/A","N/A"]];
 
 d3.csv("states.csv", function(data) {
@@ -70,6 +71,7 @@ function go(data, columns) {
     
     return table;
 }
+*/
 /*
   for (var i = 0; i < arrayLength; i++){
   for (var j = 0; j < newMap[i].length; j++) {
@@ -84,7 +86,7 @@ function go(data, columns) {
   }
 */
 
-go("States.csv",["C1","C2","C3","C4","C5","C6","C7","C8","C9","C10","C11","C12"]);
+//go("States.csv",["C1","C2","C3","C4","C5","C6","C7","C8","C9","C10","C11","C12"]);
 
 d3.csv("UnemploymentRates.csv", function(data){
     data.forEach(function(d){
@@ -112,5 +114,3 @@ var getData = function(state,currYear){
     });
 }
 //Ex.: getData("Maine","2009");
-
-
