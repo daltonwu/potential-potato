@@ -18,10 +18,6 @@ var showYear = function() {
 showYear();
 
 d3.csv("UnemploymentRates.csv", function(data){
-    console.log(data[2]["2009"]);
-});
-
-d3.csv("UnemploymentRates.csv", function(data){
     data.forEach(function(d){
 	d["2009"] = +d["2009"];
 	d["2010"] = +d["2010"];
@@ -32,6 +28,20 @@ d3.csv("UnemploymentRates.csv", function(data){
 	d["2015"] = +d["2015"];
 	d[""] = +d[""];
     });
-    console.log(data[2]);
+    //console.log(data[2]);
 });
+
+var getData = function(state,currYear){
+    var stateUR;
+    d3.csv("UnemploymentRates.csv", function(data){
+	data.forEach(function(d){
+	    if (d["State"] == state){
+		//console.log(d[currYear]);
+		return d[currYear];
+	    }
+	})
+    });
+}
+//Ex.: getData("Maine","2009");
+
 
