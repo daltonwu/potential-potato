@@ -8,6 +8,9 @@ Data Project March 2016
 * Shawn Li
 * Dalton Wu
 
+# Notes
+The states have to be double-clicked!
+
 # Data
 * [National and state unemployment rates, 2009–2015.](http://www.dlt.ri.gov/lmi/laus/us/annavg.htm)
 
