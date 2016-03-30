@@ -1,12 +1,50 @@
-$(document).ready(function() {
+var edit = function(){
+    d3.csv("UnemploymentRates.csv", function(data){
+	data.forEach(function(d){
+	    d["2009"] = +d["2009"];
+	    d["2010"] = +d["2010"];
+	    d["2011"] = +d["2011"];	
+	    d["2012"] = +d["2012"];	
+	    d["2013"] = +d["2013"];
+	    d["2014"] = +d["2014"];
+	    d["2015"] = +d["2015"];
+	    d[""] = +d[""];
+	});
+    });
+};
+edit();
+
+var restoPrint = "";
+var getData = function(state,currYear){
+    var stateUR;
+    d3.csv("UnemploymentRates.csv", function(data){
+	data.forEach(function(d){
+	    if (d["Abbr"] == state){
+		//console.log(d[currYear]);
+		restoPrint = (d[currYear]).toString();
+		//console.log(restoPrint);
+		return restoPrint;
+	    }
+	})
+    });
+}
+//Ex.: getData("Maine","2009");
+
+
+var start = function(){
     $('#map').usmap({
-    // The click action
-    click: function(event, data) {
-        $('#clicked-state')
-	    .text(function(){console.log("A");return 'This is '+data.name + " and the Crime Rate is " + getData(data.name,(document.getElementById("slider").value).toString());})
-	    .parent().effect('highlight', {color: '#C7F464'}, 2000);
-    }});
-});
+	// The click action
+	click: function(event, data) {
+            $('#clicked-state')
+	    //.text(function(){return 'This is '+data.name;})
+		.text(function(){
+		    getData(data.name,document.getElementById("slider").value);
+		    var a = getData(data.name,document.getElementById("slider").value);
+		    return 'This is '+data.name + ' and the Crime Rate is ' + restoPrint +"";})
+		.parent().effect('highlight', {color: '#C7F464'}, 2000);
+	}});
+};
+start();
 
 var slider = document.getElementById("slider");
 var year = document.getElementById("year"); // not the value, but the element
@@ -87,30 +125,3 @@ function go(data, columns) {
 */
 
 //go("States.csv",["C1","C2","C3","C4","C5","C6","C7","C8","C9","C10","C11","C12"]);
-
-d3.csv("UnemploymentRates.csv", function(data){
-    data.forEach(function(d){
-	d["2009"] = +d["2009"];
-	d["2010"] = +d["2010"];
-	d["2011"] = +d["2011"];	
-	d["2012"] = +d["2012"];	
-	d["2013"] = +d["2013"];
-	d["2014"] = +d["2014"];
-	d["2015"] = +d["2015"];
-	d[""] = +d[""];
-    });
-    //console.log(data[2]);
-});
-
-var getData = function(state,currYear){
-    var stateUR;
-    d3.csv("UnemploymentRates.csv", function(data){
-	data.forEach(function(d){
-	    if (d["State"] == state){
-		//console.log(d[currYear]);
-		return d[currYear];
-	    }
-	})
-    });
-}
-//Ex.: getData("Maine","2009");
